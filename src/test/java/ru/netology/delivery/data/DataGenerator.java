@@ -14,11 +14,13 @@ public class DataGenerator {
     }
 
     public static String generateDate(int shift) {
-        return LocalDate.now().plusDays(shift).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+        return LocalDate.now().plusDays(shift)
+                .format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
     }
 
     public static String generateCity() {
-        var cities = new String[]{"Вологда", "Воронеж", "Иваново", "Иркутск", "Калининград", "Калуга",
+        final Random random = new Random();
+        final String [] cities = new String[]{"Вологда", "Воронеж", "Иваново", "Иркутск", "Калининград", "Калуга",
                 "Кемерово", "Киров", "Кострома", "Курган", "Курск", "Гатчина", "Липецк", "Магадан", "Красногорск",
                 "Мурманск", "Нижний Новгород", "Великий Новгород", "Новосибирск", "Омск", "Оренбург", "Орёл", "Пенза",
                 "Псков", "Ростов-на-Дону", "Рязань", "Самара", "Саратов", "Южно-Сахалинск", "Екатеринбург", "Смоленск",
@@ -45,6 +47,7 @@ public class DataGenerator {
             return new UserInfo(generateCity(), generateName(locale), generatePhone(locale));
         }
     }
+
     @Value
     public static class UserInfo {
         String city;
